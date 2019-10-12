@@ -105,7 +105,11 @@ var proto = LinkedList.prototype = {
         if(index>=0 && index<this.length){
             var i = 0;
             var currentNode = this.head
-            while(currentNode.next){
+            if(index === this.length - 1){
+                
+            }
+
+            while(i <= index){
                 if(i===index){
                     return currentNode
                 }
@@ -167,6 +171,7 @@ var proto = LinkedList.prototype = {
     //根据value 移除节点
     remove: function(value){
         var index = this.indexOf(value)
+        console.log(index)
         this.removeAt(index)
     },
 
