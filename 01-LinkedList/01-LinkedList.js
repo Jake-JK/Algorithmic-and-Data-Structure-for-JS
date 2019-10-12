@@ -1,6 +1,6 @@
 /**
  * 链表实现
- * @author ksunone
+ * @author Jake
  */
 
 //Node 节点类
