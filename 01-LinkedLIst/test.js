@@ -12,9 +12,10 @@ list.push(4)
 
 
 
-console.log(list.findByValue(0))
 
+
+
+
+console.log(list.remove(6))
 console.log(list.getAllNodes())
-
-console.log(list.remove(2))
 

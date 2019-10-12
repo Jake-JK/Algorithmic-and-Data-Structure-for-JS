@@ -1,3 +1,8 @@
+/**
+ * 链表实现
+ * @author ksunone
+ */
+
 //Node 节点类
 
 function Node(value){
@@ -95,6 +100,26 @@ var proto = LinkedList.prototype = {
         return result
     },
 
+    //根据位置 查找节点
+    findByIndex: function(index){
+        if(index>=0 && index<this.length){
+            var i = 0;
+            var currentNode = this.head
+            while(currentNode.next){
+                if(i===index){
+                    return currentNode
+                }
+                currentNode = currentNode.next;
+                i++
+            }
+        }else{
+            console.log("输入的位置超过范围")
+            return null
+        }
+    },
+
+    
+
     //获取头节点
     getHead: function(){
         return this.head
@@ -141,13 +166,23 @@ var proto = LinkedList.prototype = {
 
     //根据value 移除节点
     remove: function(value){
-        var node = this.findByValue(value)
-        console.log(node)
-        // if(node.value === this.head.value){
-            
-        // }
-    }
-    
+        var index = this.indexOf(value)
+        this.removeAt(index)
+    },
+
+    //根据位置 移除节点
+    removeAt: function(index){
+        var node = this.findByIndex(index);
+        if(node){
+            var prevNode = this.findByIndex(index - 1);
+            if(prevNode){
+                prevNode.next = node.next;
+            }else if(node){
+                this.head = node.next
+            }
+            this.length--
+        }
+    },
 };
 
 
